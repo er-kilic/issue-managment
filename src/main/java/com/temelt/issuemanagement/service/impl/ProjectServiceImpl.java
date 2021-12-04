@@ -23,19 +23,22 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project save(Project project) {
-        //Bussiness Logic
-        if (project.getProjectCode() == null) {
-            //Exception dizayn pattern
-            throw new IllegalArgumentException("Project cone cannot be null!");
+    public ProjectDto save(ProjectDto projectDto) {
+
+        Project projectCheck = projectRepository.getByProjectCode(projectDto.getProjectCode());
+        if (projectCheck != null){
+            throw new IllegalArgumentException("Project Code Already Exist");
         }
-        project = projectRepository.save(project);
-        return project;
+
+        Project p = modelMapper.map(projectDto, Project.class);
+        p = projectRepository.save(p);
+        projectDto.setId(p.getId());
+        return projectDto;
     }
 
     @Override
     public ProjectDto getById(Long id) {
-        Project p = projectRepository.getOne(id);
+        Project p = projectRepository.getById(id);
         return modelMapper.map(p, ProjectDto.class);
     }
 
@@ -45,7 +48,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public List<Project> getByProjectCode(String projectCode) {
+    public ProjectDto getByProjectCode(String projectCode) {
         return null;
     }
 

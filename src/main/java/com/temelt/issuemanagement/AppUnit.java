@@ -13,10 +13,10 @@ public class AppUnit implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Project p = new Project();
-        p.setProjectCode("12345");
-        p.setProjectName("Deneme");
-        projectService.save(p);
+//        Project p = new Project();
+//        p.setProjectCode("12345");
+//        p.setProjectName("Deneme");
+//        projectService.save(p);
 
     }
 }

@@ -9,13 +9,13 @@ import java.util.List;
 
 public interface ProjectService {
 
-    Project save(Project project);
+    ProjectDto save(ProjectDto projectDto);
 
     ProjectDto getById(Long id);
 
     Page<Project> getAllPageable(Pageable pageable);
 
-    List<Project> getByProjectCode(String projectCode);
+    ProjectDto getByProjectCode(String projectCode);
 
     List<Project> getByPorjectContains(String projectCode);
 
