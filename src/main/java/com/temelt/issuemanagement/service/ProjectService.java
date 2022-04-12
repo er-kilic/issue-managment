@@ -19,5 +19,7 @@ public interface ProjectService {
 
     List<Project> getByPorjectContains(String projectCode);
 
-    Boolean delete (Project project);
+    Boolean delete (Long id);
+
+    ProjectDto update(Long id, ProjectDto projectDto);
 }

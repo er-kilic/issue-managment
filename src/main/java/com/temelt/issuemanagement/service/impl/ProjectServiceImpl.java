@@ -24,12 +24,10 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDto save(ProjectDto projectDto) {
-
         Project projectCheck = projectRepository.getByProjectCode(projectDto.getProjectCode());
-        if (projectCheck != null){
+        if (projectCheck != null) {
             throw new IllegalArgumentException("Project Code Already Exist");
         }
-
         Project p = modelMapper.map(projectDto, Project.class);
         p = projectRepository.save(p);
         projectDto.setId(p.getId());
@@ -40,6 +38,22 @@ public class ProjectServiceImpl implements ProjectService {
     public ProjectDto getById(Long id) {
         Project p = projectRepository.getById(id);
         return modelMapper.map(p, ProjectDto.class);
+    }
+
+    @Override
+    public ProjectDto update(Long id, ProjectDto projectDto) {
+            Project project = projectRepository.getOne(id);
+        if (project == null) {
+            throw new IllegalArgumentException("Project Does Not Exist ID: " + id);
+        }
+        Project projectCheck = projectRepository.getByProjectCode(projectDto.getProjectCode());
+        if (projectCheck != null && projectCheck.getId() != project.getId()) {
+            throw new IllegalArgumentException("Project Code Already Exist");
+        }
+        project.setProjectCode(projectDto.getProjectCode());
+        project.setProjectName(projectDto.getProjectName());
+        projectRepository.save(project);
+        return modelMapper.map(project,ProjectDto.class);
     }
 
     @Override
@@ -58,7 +72,9 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Boolean delete(Project project) {
-        return null;
+    public Boolean delete(Long id) {
+        projectRepository.deleteById(id);
+        return true;
     }
+
 }

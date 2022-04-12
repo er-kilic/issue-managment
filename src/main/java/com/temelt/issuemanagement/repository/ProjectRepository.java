@@ -18,5 +18,4 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     List<Project> findAll(Sort sort);
 
     Page<Project> findAll(Pageable pageable);
-
 }
