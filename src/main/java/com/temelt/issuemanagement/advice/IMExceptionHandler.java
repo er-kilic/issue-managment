@@ -11,15 +11,18 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.util.Date;
 
-@Slf4j
-@RestController
+/**
+ * Created by temelt on 6.02.2019.
+ */
 @ControllerAdvice
+@RestController
+@Slf4j
 public class IMExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public final ResponseEntity<?> handleExceptions(Exception ex, WebRequest request) {
-        log.error("ControllerAddvice -> ExceptionHandler -> ", ex, request);
-        ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage());
-        return new ResponseEntity<>(exceptionResponse, HttpStatus.EXPECTATION_FAILED);
+        log.error("ControllerAdvice -> ExceptionHandler -> " , ex ,request);
+        ExceptionResponse  exceptionResponse =new ExceptionResponse(new Date(),ex.getMessage());
+        return new ResponseEntity<>(exceptionResponse , HttpStatus.EXPECTATION_FAILED);
     }
 }

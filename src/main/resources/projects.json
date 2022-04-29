@@ -1,17 +1,44 @@
 [
   {
     "_class": "com.temelt.issuemanagement.entity.Project",
-    "projectCode": "IM",
+    "projectCode" : "IM",
     "projectName": "Issue Management Project"
   },
   {
     "_class": "com.temelt.issuemanagement.entity.Project",
-    "projectCode": "ERP-S",
+    "projectCode" : "ERP-S",
     "projectName": "ERP Project for Sales"
   },
   {
     "_class": "com.temelt.issuemanagement.entity.Project",
-    "projectCode": "CRM-s",
+    "projectCode" : "CRM-S",
     "projectName": "CRM Project for Sales"
+  },
+  {
+    "_class": "com.temelt.issuemanagement.entity.Project",
+    "projectCode" : "CRM-B",
+    "projectName": "CRM Project for Bussiness"
+  },
+  {
+    "_class": "com.temelt.issuemanagement.entity.Project",
+    "projectCode" : "ERP-B",
+    "projectName": "ERP Project for Bussiness"
+  },
+  {
+    "_class": "com.temelt.issuemanagement.entity.Project",
+    "projectCode" : "TP",
+    "projectName": "Test Project"
+  },
+  {
+    "_class": "com.temelt.issuemanagement.entity.User",
+    "username" : "temelt",
+    "nameSurname": "Taner TEMEL",
+    "email":"taner.temelt@gmail.com"
+  },
+  {
+    "_class": "com.temelt.issuemanagement.entity.User",
+    "username" : "jdoe",
+    "nameSurname": "John Doe",
+    "email":"jdoe@gmail.com"
   }
 ]

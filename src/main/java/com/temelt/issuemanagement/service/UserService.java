@@ -1,20 +1,19 @@
 package com.temelt.issuemanagement.service;
 
-import com.temelt.issuemanagement.entity.User;
-import org.springframework.data.domain.Page;
+import com.temelt.issuemanagement.dto.UserDto;
+import com.temelt.issuemanagement.util.TPage;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-
+/**
+ * Created by temelt on 4.02.2019.
+ */
 public interface UserService {
 
-    User save(User user);
+    UserDto save(UserDto user);
 
-    User getById(Long id);
+    UserDto getById(Long id);
 
-    Page<User> getAllPageable(Pageable pageable);
+    TPage<UserDto> getAllPageable(Pageable pageable);
 
-    User getByUserName(String username);
-
-    Boolean delete (User user);
+    UserDto getByUsername(String username);
 }

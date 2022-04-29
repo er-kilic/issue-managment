@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * Created by temelt on 6.02.2019.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -6,6 +6,9 @@ import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
+/**
+ * Created by temelt on 4.02.2019.
+ */
 @Data
 public class TPage<T> {
 

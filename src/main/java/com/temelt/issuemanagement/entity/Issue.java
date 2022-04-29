@@ -1,32 +1,37 @@
 package com.temelt.issuemanagement.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
-@Data //get set ler için
-@ToString
-@AllArgsConstructor //tüm fieldlarını Constructor
-@NoArgsConstructor //boş Constructor oluşturuyor
 @Table(name = "issue")
-@EqualsAndHashCode
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Issue extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "description", length = 400)
+    @Column(name = "description", length = 1000)
     private String description;
 
-    @Column(name = "details", length = 100)
+    @Column(name = "details", length = 4000)
     private String details;
 
     @Column(name = "date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @Column(name = "issueStatus")
+    @Column(name = "issue_status")
     @Enumerated(EnumType.STRING)
     private IssueStatus issueStatus;
 

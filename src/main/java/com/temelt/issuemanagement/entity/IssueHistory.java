@@ -1,42 +1,45 @@
 package com.temelt.issuemanagement.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
 @Table(name = "issue_history")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
-public class IssueHistory extends  BaseEntity{
+public class IssueHistory extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
 
-    @JoinColumn(name = "issue_id ")
-    @ManyToOne(optional = true,fetch = FetchType.LAZY)
+    @JoinColumn(name = "issue_id")
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
     private Issue issue;
 
-    @Column(name = "description",length = 1000)
+    @Column(name = "description", length = 1000)
     private String description;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date")
     private Date date;
 
-    @JoinColumn(name = "issue_status")
+    @Column(name = "issue_status")
     @Enumerated(EnumType.STRING)
     private IssueStatus issueStatus;
 
-    @Column(name = "details",length = 4000)
+    @Column(name = "details", length = 4000)
     private String details;
 
     @JoinColumn(name = "assignee_user_id")
-    @ManyToOne(optional = true,fetch = FetchType.LAZY)
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
     private User assignee;
 }
