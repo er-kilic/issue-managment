@@ -7,9 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-/**
- * Created by temelt on 4.02.2019.
- */
+
 public interface IssueHistoryService {
 
     IssueHistoryDto save(IssueHistoryDto issueHistory);

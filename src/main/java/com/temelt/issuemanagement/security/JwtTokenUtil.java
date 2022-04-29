@@ -12,9 +12,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.function.Function;
 
-/**
- * Created by temelt on 15.02.2019.
- */
+
 @Component
 public class JwtTokenUtil {
 

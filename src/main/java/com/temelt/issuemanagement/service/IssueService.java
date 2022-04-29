@@ -4,9 +4,7 @@ import com.temelt.issuemanagement.dto.IssueDto;
 import com.temelt.issuemanagement.util.TPage;
 import org.springframework.data.domain.Pageable;
 
-/**
- * Created by temelt on 4.02.2019.
- */
+
 public interface IssueService {
 
     IssueDto save(IssueDto issue);

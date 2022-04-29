@@ -25,9 +25,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by temelt on 4.02.2019.
- */
+
 @Service
 public class IssueServiceImpl implements IssueService {
 

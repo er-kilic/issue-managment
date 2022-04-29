@@ -17,9 +17,7 @@ import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by temelt on 4.02.2019.
- */
+
 @RestController
 @RequestMapping(ApiPaths.IssueCtrl.CTRL)
 @Api(value = ApiPaths.IssueCtrl.CTRL, description = "Issue APIs")

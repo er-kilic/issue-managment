@@ -17,9 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by temelt on 4.02.2019.
- */
+
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {

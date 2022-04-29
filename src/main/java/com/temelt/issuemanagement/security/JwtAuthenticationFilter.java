@@ -20,9 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
-/**
- * Created by temelt on 15.02.2019.
- */
+
 @Service
 @Slf4j
 public class JwtAuthenticationFilter extends OncePerRequestFilter {

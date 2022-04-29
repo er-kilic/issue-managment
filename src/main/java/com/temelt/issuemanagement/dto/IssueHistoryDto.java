@@ -7,9 +7,7 @@ import lombok.Data;
 
 import java.util.Date;
 
-/**
- * Created by temelt on 4.02.2019.
- */
+
 @Data
 @ApiModel(value = "Issue History Data Transfer Object")
 public class IssueHistoryDto {

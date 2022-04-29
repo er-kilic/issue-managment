@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 
-/**
- * Created by temelt on 15.02.2019.
- */
+
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 

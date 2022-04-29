@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-/**
- * Created by temelt on 4.02.2019.
- */
+
 @RestController
 @RequestMapping(ApiPaths.UserCtrl.CTRL)
 @Api(value = ApiPaths.UserCtrl.CTRL, description = "User APIs")

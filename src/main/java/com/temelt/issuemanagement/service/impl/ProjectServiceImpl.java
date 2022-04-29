@@ -15,9 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by temelt on 4.02.2019.
- */
+
 @Service
 public class ProjectServiceImpl implements ProjectService {
 
