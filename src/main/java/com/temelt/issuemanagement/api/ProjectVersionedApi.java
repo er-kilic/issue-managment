@@ -3,40 +3,34 @@ package com.temelt.issuemanagement.api;
 import com.temelt.issuemanagement.dto.ProjectDto;
 import com.temelt.issuemanagement.service.impl.ProjectServiceImpl;
 import com.temelt.issuemanagement.util.ApiPaths;
-import com.temelt.issuemanagement.util.TPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(ApiPaths.ProjectCtrl.CTRL)
-@Api(value = ApiPaths.ProjectCtrl.CTRL, description = "Project API")
-@Slf4j
-public class ProjectController {
+@RequestMapping("/versioning")
+@Api(value = "/versioning", description = "Project API")
+public class ProjectVersionedApi {
 
     private final ProjectServiceImpl projectServiceImpl;
 
-    public ProjectController(ProjectServiceImpl projectServiceImpl) {
+    public ProjectVersionedApi(ProjectServiceImpl projectServiceImpl) {
         this.projectServiceImpl = projectServiceImpl;
     }
 
-    @GetMapping(value = "/pagination")
-    @ApiOperation(value = "Proje Pagination bazlı getir", response = ProjectDto.class)
-    public ResponseEntity<TPage<ProjectDto>> getByIdPagination(Pageable pageable) {
-        TPage<ProjectDto> dto = projectServiceImpl.getAllPageable(pageable);
+    @GetMapping(value = "/{id}", params = "version=1")
+    @ApiOperation(value = "V1 Proje Id bazlı getir", response = ProjectDto.class)
+    public ResponseEntity<ProjectDto> getByIdV1(@PathVariable(value = "id", required = true) Long id) {
+        ProjectDto dto = projectServiceImpl.getById(id);
         return ResponseEntity.ok(dto);
     }
 
-    @GetMapping("/{id}")
-    @ApiOperation(value = "Proje Id bazlı getir", response = ProjectDto.class)
-    public ResponseEntity<ProjectDto> getById(@PathVariable(value = "id", required = true) Long id) {
-        log.info("ProjectController -> GetById");
-        log.debug("ProjectController -> GetById -> PARAM:" + id);
+    @GetMapping(value = "/{id}", params = "version=2")
+    @ApiOperation(value = "V2 Proje Id bazlı getir", response = ProjectDto.class)
+    public ResponseEntity<ProjectDto> getByIdV2(@PathVariable(value = "id", required = true) Long id) {
         ProjectDto dto = projectServiceImpl.getById(id);
         return ResponseEntity.ok(dto);
     }

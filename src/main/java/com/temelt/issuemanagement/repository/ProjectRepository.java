@@ -2,6 +2,7 @@ package com.temelt.issuemanagement.repository;
 
 import com.temelt.issuemanagement.dto.ProjectDto;
 import com.temelt.issuemanagement.entity.Project;
+import com.temelt.issuemanagement.util.TPage;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -18,4 +19,5 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     List<Project> findAll(Sort sort);
 
     Page<Project> findAll(Pageable pageable);
+
 }

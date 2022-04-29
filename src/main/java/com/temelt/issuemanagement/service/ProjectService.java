@@ -2,6 +2,7 @@ package com.temelt.issuemanagement.service;
 
 import com.temelt.issuemanagement.dto.ProjectDto;
 import com.temelt.issuemanagement.entity.Project;
+import com.temelt.issuemanagement.util.TPage;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,8 +14,6 @@ public interface ProjectService {
 
     ProjectDto getById(Long id);
 
-    Page<Project> getAllPageable(Pageable pageable);
-
     ProjectDto getByProjectCode(String projectCode);
 
     List<Project> getByPorjectContains(String projectCode);
@@ -22,4 +21,6 @@ public interface ProjectService {
     Boolean delete (Long id);
 
     ProjectDto update(Long id, ProjectDto projectDto);
+
+    TPage<ProjectDto> getAllPageable(Pageable pageable);
 }

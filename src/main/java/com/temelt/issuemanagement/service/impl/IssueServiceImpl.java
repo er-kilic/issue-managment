@@ -1,7 +1,9 @@
 package com.temelt.issuemanagement.service.impl;
 
 import com.temelt.issuemanagement.dto.IssueDto;
+import com.temelt.issuemanagement.dto.ProjectDto;
 import com.temelt.issuemanagement.entity.Issue;
+import com.temelt.issuemanagement.entity.Project;
 import com.temelt.issuemanagement.repository.IssueRepository;
 import com.temelt.issuemanagement.service.IssueService;
 import com.temelt.issuemanagement.util.TPage;
@@ -35,7 +37,8 @@ public class IssueServiceImpl implements IssueService {
 
     @Override
     public IssueDto getById(Long id) {
-        return null;
+        Issue p = issueRepository.getById(id);
+        return modelMapper.map(p, IssueDto.class);
     }
 
     @Override
